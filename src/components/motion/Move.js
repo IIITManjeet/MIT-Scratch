@@ -25,7 +25,7 @@ const Move = ({ character, comp_id }) => {
         Move X{" "}
         <input
           type="number"
-          className="text-black text-center w-16 mx-2"
+          className="text-black text-center w-16 mx-2 rounded-lg"
           value={steps}
           onChange={(e) => setSteps(parseInt(e.target.value))}
         />{" "}

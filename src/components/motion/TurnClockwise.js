@@ -25,7 +25,7 @@ const TurnClockWise = ({ character, characterAngle, comp_id }) => {
         <div className="grid grid-cols-2">
           <div className="text-white">Rotate By:</div>
           <input
-            className="mx-2 p-1 py-0 text-center"
+            className="mx-2 p-1 py-0 text-center rounded-lg"
             type="number"
             value={angle}
             onChange={(e) => setAngle(parseInt(e.target.value))}

@@ -9,7 +9,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import GitHubIcon from "@material-ui/icons/GitHub";
+import RestoreIcon from "@material-ui/icons/Restore";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,12 +60,7 @@ function App({ complist, update_list }) {
               MIT Scratch Clone
             </Typography>
             <Button color="inherit">
-              <GitHubIcon
-                onClick={() =>
-                  (window.location.href =
-                    "https://github.com/peeyush14goyal/MIT-Scratch-Clone")
-                }
-              />
+              <RestoreIcon onClick={() => window.location.reload()} />
             </Button>
           </Toolbar>
         </AppBar>

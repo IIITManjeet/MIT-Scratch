@@ -21,7 +21,7 @@ const Repeat = ({ comp_id, events, set_repeat }) => {
         <div className="grid grid-cols-2 my-2">
           <div className="text-white">Repeat</div>
           <input
-            className="mx-2 p-1 py-0 text-center"
+            className="mx-2 p-1 py-0 text-center rounded-lg"
             type="number"
             value={repeat}
             onChange={(e) => {

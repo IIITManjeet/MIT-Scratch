@@ -15,6 +15,7 @@ import MoveY from "./motion/MoveY";
 import BroadcastMessage from "./events/broadcast";
 import Think from "./looks/Think";
 import ThinkWithTimer from "./looks/ThinkWithTimer";
+import GoToMousePointer from "./motion/GoToMousePointer";
 
 // fetch components based on different keys
 export const getComponent = (key, id) => {
@@ -65,6 +66,9 @@ export const getComponent = (key, id) => {
 
     case "THINK_TIMER":
       return <ThinkWithTimer comp_id={id} />;
+
+    case "GOTO_MOUSE_POINTER":
+      return <GoToMousePointer comp_id={id} />;
 
     default:
       return React.null;

@@ -21,7 +21,7 @@ const Wait = ({ events, comp_id, set_wait }) => {
         <div className="grid grid-cols-2 my-2">
           <div className="text-white">Wait</div>
           <input
-            className="mx-2 p-1 py-0 text-center"
+            className="mx-2 p-1 py-0 text-center rounded-lg"
             type="number"
             value={wait}
             onChange={(e) => handleChange(e)}

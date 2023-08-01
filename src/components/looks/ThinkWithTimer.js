@@ -39,7 +39,7 @@ const ThinkWithTimer = ({ character, comp_id }) => {
         <div className="grid grid-cols-2 my-2">
           <div className="text-white">Message</div>
           <input
-            className="mx-2 p-1 py-0 text-center"
+            className="mx-2 p-1 py-0 text-center rounded-lg"
             type="text"
             value={state.timer_message}
             onChange={(e) => {
@@ -51,7 +51,7 @@ const ThinkWithTimer = ({ character, comp_id }) => {
         <div className="grid grid-cols-2 my-2">
           <div className="text-white">Timer:</div>
           <input
-            className="mx-2 p-1 py-0 text-center"
+            className="mx-2 p-1 py-0 text-center rounded-lg"
             type="number"
             value={state.timer_for_msg}
             onChange={(e) => {

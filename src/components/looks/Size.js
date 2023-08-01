@@ -18,7 +18,7 @@ const Size = ({ character, comp_id }) => {
         <div className="grid grid-cols-2 my-2">
           <div className="text-white">Size:</div>
           <input
-            className="mx-2 p-1 py-0 text-center"
+            className="mx-2 p-1 py-0 text-center rounded-lg"
             type="number"
             value={state.scale}
             onChange={(e) =>
