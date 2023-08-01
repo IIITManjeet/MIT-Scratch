@@ -16,6 +16,7 @@ import BroadcastMessage from "./events/broadcast";
 import Think from "./looks/Think";
 import ThinkWithTimer from "./looks/ThinkWithTimer";
 import GoToMousePointer from "./motion/GoToMousePointer";
+import PointInDirection from "./motion/PointInDirection";
 
 // fetch components based on different keys
 export const getComponent = (key, id) => {
@@ -36,6 +37,9 @@ export const getComponent = (key, id) => {
 
     case "SAY_MESSAGE":
       return <SayMessage comp_id={id} />;
+
+    case "POINT_IN_DIRECTION":
+      return <PointInDirection comp_id={id} />;
 
     case "SAY_MESSAGE_WITH_TIMER":
       return <SayMessageWithTimer comp_id={id} />;

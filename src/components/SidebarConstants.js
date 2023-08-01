@@ -6,6 +6,7 @@ export const motionComponents = [
   "TURN_ANTI_CLOCKWISE",
   "GOTO_XY",
   "GOTO_MOUSE_POINTER",
+  "POINT_IN_DIRECTION",
 ];
 
 export const looksComponents = [
