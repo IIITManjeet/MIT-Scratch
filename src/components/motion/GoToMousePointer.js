@@ -23,18 +23,86 @@ const GotoMousePointer = ({ character, comp_id }) => {
   }, [state]);
   const gotoMousePointer = () => {
     const el = document.getElementById(`${character.active}-div`);
+    el.style.transition = "transform 0s";
+    var viewportOffset= el.getBoundingClientRect();
+    var top = viewportOffset.top;
+    var left = viewportOffset.left;
+    console.log("left: "+left);
+    console.log("top: "+top);
+    const area = document.getElementById(`preview_area`);
+    console.log("height of preview area: "+ area.offsetHeight);
+    console.log("width of whole screen: "+window.innerWidth);
+    let dif = window.innerWidth - area.offsetWidth;
+    let difHeight = window.innerHeight - area.offsetHeight;
+    console.log("difference: "+dif);
     el.style.position = "relative";
-    el.style.left = state.goto_x + "px";
-    el.style.top = state.goto_y + "px";
-    // if (
-    //   (state.goto_x <= -200 && state.goto_x >= 200) ||
-    //   (state.goto_y <= -350 && state.goto_y >= 350)
-    // ) {
+    console.log(state.goto_x+" "+state.goto_y);
 
-    // } else {
-    //   el.style.left = 200 + "px";
-    //   el.style.top = 350 + "px";
-    // }
+
+
+    
+
+
+
+    if (
+      state.goto_x >= dif && state.goto_x <= left 
+    ) {
+      el.style.left = el.offsetLeft - Math.abs(left - state.goto_x) + "px";
+        if(state.goto_y >= difHeight) {
+          if(state.goto_y <= top) {
+            console.log("yess");
+          
+          
+          el.style.top = el.offsetTop - Math.abs(top - state.goto_y)+"px";
+          } else {
+            
+          
+          el.style.top = el.offsetTop + Math.abs(top - state.goto_y)+"px";
+          }
+        } else {
+          el.style.top = el.offsetTop + "px";
+        } 
+          
+      
+    } else if(state.goto_x >=dif && state.goto_x > left) {
+      el.style.left = el.offsetLeft + Math.abs(left - state.goto_x) + "px";
+      if(state.goto_y >= difHeight) {
+        if(state.goto_y <= top) {
+          console.log("yess");
+        
+        
+        el.style.top = el.offsetTop - Math.abs(top - state.goto_y)+"px";
+        } else {
+          
+        
+        el.style.top = el.offsetTop + Math.abs(top - state.goto_y)+"px";
+        }
+      } else {
+        el.style.top = el.offsetTop + "px";
+      } 
+    } 
+    else {
+      console.log("else");
+      el.style.left = el.offsetLeft - Math.abs(left - dif)+ "px" ;
+      
+      if(state.goto_y >= difHeight) {
+        if(state.goto_y <= top) {
+          console.log("yess");
+        
+        
+        el.style.top = el.offsetTop - Math.abs(top - state.goto_y)+"px";
+        } else {
+          
+        
+        el.style.top = el.offsetTop + Math.abs(top - state.goto_y)+"px";
+        }
+      } else {
+        el.style.top = el.offsetTop+"px";
+      } 
+    }
+
+
+
   };
   return (
     <Paper elevation={3}>
