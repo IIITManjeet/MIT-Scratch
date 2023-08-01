@@ -7,6 +7,8 @@ export const motionComponents = [
   "GOTO_XY",
   "GOTO_MOUSE_POINTER",
   "POINT_IN_DIRECTION",
+  "SET_X",
+  "SET_Y",
 ];
 
 export const looksComponents = [

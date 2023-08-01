@@ -17,6 +17,8 @@ import Think from "./looks/Think";
 import ThinkWithTimer from "./looks/ThinkWithTimer";
 import GoToMousePointer from "./motion/GoToMousePointer";
 import PointInDirection from "./motion/PointInDirection";
+import SetXTo from "./motion/SetXTo";
+import SetYTo from "./motion/SetYTo";
 
 // fetch components based on different keys
 export const getComponent = (key, id) => {
@@ -40,6 +42,12 @@ export const getComponent = (key, id) => {
 
     case "POINT_IN_DIRECTION":
       return <PointInDirection comp_id={id} />;
+
+    case "SET_X":
+      return <SetXTo comp_id={id} />;
+
+    case "SET_Y":
+      return <SetYTo comp_id={id} />;
 
     case "SAY_MESSAGE_WITH_TIMER":
       return <SayMessageWithTimer comp_id={id} />;
