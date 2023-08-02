@@ -19,6 +19,8 @@ import GoToMousePointer from "./motion/GoToMousePointer";
 import PointInDirection from "./motion/PointInDirection";
 import SetXTo from "./motion/SetXTo";
 import SetYTo from "./motion/SetYTo";
+import SizeByPercent from "./looks/SizeByPercent";
+import Color from "./looks/Color";
 
 // fetch components based on different keys
 export const getComponent = (key, id) => {
@@ -48,6 +50,12 @@ export const getComponent = (key, id) => {
 
     case "SET_Y":
       return <SetYTo comp_id={id} />;
+
+    case "SIZE_BY_PERCENT":
+      return <SizeByPercent comp_id={id} />;
+
+    case "COLOR":
+      return <Color comp_id={id} />;
 
     case "SAY_MESSAGE_WITH_TIMER":
       return <SayMessageWithTimer comp_id={id} />;

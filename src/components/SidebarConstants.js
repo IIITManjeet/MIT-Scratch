@@ -19,6 +19,8 @@ export const looksComponents = [
   "HIDE_MESSAGE",
   "SIZE",
   "SHOW",
+  "SIZE_BY_PERCENT",
+  "COLOR",
   "HIDE",
 ];
 

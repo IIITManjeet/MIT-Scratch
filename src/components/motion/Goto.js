@@ -25,8 +25,7 @@ const GotoXY = ({ character, comp_id }) => {
             type="number"
             value={state.goto_x}
             onChange={(e) => {
-              parseInt(e.target.value) !== 0 &&
-                setState({ ...state, goto_x: parseInt(e.target.value) });
+              setState({ ...state, goto_x: parseInt(e.target.value) });
             }}
           />
         </div>
@@ -37,8 +36,7 @@ const GotoXY = ({ character, comp_id }) => {
             type="number"
             value={state.goto_y}
             onChange={(e) => {
-              parseInt(e.target.value) !== 0 &&
-                setState({ ...state, goto_y: parseInt(e.target.value) });
+              setState({ ...state, goto_y: parseInt(e.target.value) });
             }}
           />
         </div>

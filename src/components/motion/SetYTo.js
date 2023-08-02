@@ -10,7 +10,7 @@ const SetYTo = ({ character, comp_id }) => {
   const handleClick = () => {
     const el = document.getElementById(`${character.active}-div`);
     el.style.position = "relative";
-    el.style.transition = "trasform 0.0001s";
+    el.style.transition = "trasform 0s";
     el.style.top = steps + "px";
   };
 
