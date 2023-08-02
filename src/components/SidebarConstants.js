@@ -22,6 +22,7 @@ export const looksComponents = [
   "SIZE_BY_PERCENT",
   "COLOR",
   "HIDE",
+  "RESET",
 ];
 
 export const eventsComponents = ["BROADCAST"];

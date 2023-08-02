@@ -21,6 +21,7 @@ import SetXTo from "./motion/SetXTo";
 import SetYTo from "./motion/SetYTo";
 import SizeByPercent from "./looks/SizeByPercent";
 import Color from "./looks/Color";
+import Reset from "./looks/Reset";
 
 // fetch components based on different keys
 export const getComponent = (key, id) => {
@@ -89,6 +90,9 @@ export const getComponent = (key, id) => {
 
     case "GOTO_MOUSE_POINTER":
       return <GoToMousePointer comp_id={id} />;
+
+    case "RESET":
+      return <Reset comp_id={id} />;
 
     default:
       return React.null;
