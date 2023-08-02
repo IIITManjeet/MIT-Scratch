@@ -16,6 +16,7 @@ import BroadcastMessage from "./events/broadcast";
 import Think from "./looks/Think";
 import ThinkWithTimer from "./looks/ThinkWithTimer";
 import GoToMousePointer from "./motion/GoToMousePointer";
+import PointToMousePointer from "./motion/PointToMousePointer";
 import PointInDirection from "./motion/PointInDirection";
 import SetXTo from "./motion/SetXTo";
 import SetYTo from "./motion/SetYTo";
@@ -51,6 +52,9 @@ export const getComponent = (key, id) => {
 
     case "SET_Y":
       return <SetYTo comp_id={id} />;
+
+    case "POINT_MOUSE_POINTER":
+      return <PointToMousePointer comp_id={id} />;
 
     case "SIZE_BY_PERCENT":
       return <SizeByPercent comp_id={id} />;
