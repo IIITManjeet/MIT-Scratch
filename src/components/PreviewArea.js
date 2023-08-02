@@ -123,7 +123,7 @@ function PreviewArea({ character, add_character, set_active }) {
           </Button>
         </div>
       </div>
-      <div className="flex justify-around h-full">
+      <div className="flex justify-around h-full" id="arena">
         {character.characters.map((x, i) => {
           return (
             <div
