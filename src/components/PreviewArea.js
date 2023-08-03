@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CatSprite from "./CatSprite";
 import { connect } from "react-redux";
+import { setFlag } from "../redux/events/eventActions";
 import { addCharacter, setActive } from "../redux/character/actions";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -9,6 +10,7 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
 import AddCircleIcon from "@material-ui/icons/AddCircle";
+import FlagIcon from "@material-ui/icons/Flag";
 
 // Styling for MaterialUI Components
 const useStyles = makeStyles((theme) =>
@@ -26,9 +28,16 @@ const useStyles = makeStyles((theme) =>
   })
 );
 
-function PreviewArea({ character, add_character, set_active }) {
+function PreviewArea({
+  character,
+  add_character,
+  set_active,
+  set_flag,
+  events,
+}) {
   const classes = useStyles();
   const [active, setActive] = useState(character.active);
+  const [flag, setStateFlag] = useState(0);
   var pos1 = 0,
     pos2 = 0,
     pos3 = 0,
@@ -74,6 +83,12 @@ function PreviewArea({ character, add_character, set_active }) {
     setActive(e.target.value);
     set_active(e.target.value);
   };
+  function handleClick(e) {
+    let val = parseInt(e.target.value);
+    setStateFlag(val);
+    console.log(events.flag);
+    set_flag(val);
+  }
 
   return (
     <div
@@ -83,6 +98,14 @@ function PreviewArea({ character, add_character, set_active }) {
       <div className="flex justify-between mb-10">
         <div className="font-bold mb-5 text-center border border-2 rounded text-white bg-green-400 p-2 w-auto">
           Preview Area
+        </div>
+        <div
+          onClick={(e) => handleClick(e)}
+          className="font-bold mb-5 text-center border border-2 rounded text-white hover:bg-yellow-200 hover:z-[10px]
+          cursor-pointer text-green-400 p-2 w-auto"
+          id="flag"
+        >
+          <FlagIcon />
         </div>
         <div>
           <FormControl className={classes.formControl}>
@@ -110,7 +133,6 @@ function PreviewArea({ character, add_character, set_active }) {
             </Select>
           </FormControl>
         </div>
-
         <div>
           <Button
             variant="contained"
@@ -155,6 +177,7 @@ function PreviewArea({ character, add_character, set_active }) {
 const mapStateToProps = (state) => {
   return {
     character: state.character,
+    events: state.event,
   };
 };
 
@@ -163,6 +186,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     add_character: () => dispatch(addCharacter()),
     set_active: (ch_id) => dispatch(setActive(ch_id)),
+    set_flag: (value) => dispatch(setFlag(value)),
   };
 };
 

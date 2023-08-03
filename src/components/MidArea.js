@@ -64,6 +64,16 @@ function MidArea({ area_list, add_list, event_values }) {
       }
     }
 
+    if (arr[i] === "FLAG") {
+      let str2 = `comp${arr[i]}-${id}-${i}`;
+      while (event_values.flag === 0) {
+        console.log(event_values.flag);
+      }
+      if (event_values.flag === 1) {
+        i++;
+      }
+    }
+
     // Handle Repeat at first index
     else if (arr[i] !== "REPEAT") {
       eventFire(document.getElementById(str1), "click");

@@ -1,4 +1,4 @@
-import { SET_REPEAT, SET_WAIT } from "./eventTypes";
+import { SET_REPEAT, SET_WAIT, SET_FLAG } from "./eventTypes";
 
 export const setRepeat = (repeat_val) => {
   return {
@@ -11,5 +11,12 @@ export const setWait = (wait_val) => {
   return {
     type: SET_WAIT,
     value: wait_val,
+  };
+};
+
+export const setFlag = (flag_val) => {
+  return {
+    type: SET_FLAG,
+    value: flag_val,
   };
 };

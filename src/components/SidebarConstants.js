@@ -9,7 +9,7 @@ export const motionComponents = [
   "POINT_IN_DIRECTION",
   "SET_X",
   "SET_Y",
-  "POINT_MOUSE_POINTER"
+  "POINT_MOUSE_POINTER",
 ];
 
 export const looksComponents = [
@@ -26,6 +26,6 @@ export const looksComponents = [
   "RESET",
 ];
 
-export const eventsComponents = ["BROADCAST"];
+export const eventsComponents = ["BROADCAST", "FLAG"];
 
 export const controlComponents = ["WAIT", "REPEAT"];

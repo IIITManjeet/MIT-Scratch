@@ -23,6 +23,8 @@ import SetYTo from "./motion/SetYTo";
 import SizeByPercent from "./looks/SizeByPercent";
 import Color from "./looks/Color";
 import Reset from "./looks/Reset";
+import { Flag } from "@material-ui/icons";
+import FlagClick from "./events/flagClick";
 
 // fetch components based on different keys
 export const getComponent = (key, id) => {
@@ -79,6 +81,9 @@ export const getComponent = (key, id) => {
 
     case "WAIT":
       return <Wait comp_id={id} />;
+
+    case "FLAG":
+      return <FlagClick comp_id={id} />;
 
     case "REPEAT":
       return <Repeat comp_id={id} />;
