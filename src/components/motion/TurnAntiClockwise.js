@@ -5,7 +5,7 @@ import UndoIcon from "@material-ui/icons/Undo";
 import Paper from "@material-ui/core/Paper";
 
 const TurnAntiClockWise = ({ character, characterAngle, comp_id }) => {
-  const [angle, setAngle] = useState(0);
+  const [angle, setAngle] = useState(45);
 
   // handle anti-clockwise rotation
   const handleClick = () => {

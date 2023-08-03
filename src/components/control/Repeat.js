@@ -4,7 +4,7 @@ import { setRepeat } from "../../redux/events/eventActions";
 import Paper from "@material-ui/core/Paper";
 
 const Repeat = ({ comp_id, events, set_repeat }) => {
-  const [repeat, setStateRepeat] = useState(0);
+  const [repeat, setStateRepeat] = useState(3);
 
   // Set Repeat value for current component
   function handleChange(e) {
