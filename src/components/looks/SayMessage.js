@@ -5,7 +5,7 @@ import Paper from "@material-ui/core/Paper";
 const SayMessage = ({ character, comp_id }) => {
   const [state, setState] = useState({
     show_msg: false,
-    message: "",
+    message: "Hello!",
     character_id: "",
   });
   /* Display Message */

@@ -5,7 +5,7 @@ import { amber } from "tailwindcss/colors";
 
 const Color = ({ character, comp_id }) => {
   const [state, setState] = useState({
-    color: 0,
+    color: 25,
     option: 0,
   });
 

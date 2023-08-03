@@ -5,7 +5,7 @@ import RedoIcon from "@material-ui/icons/Redo";
 import Paper from "@material-ui/core/Paper";
 
 const TurnClockWise = ({ character, characterAngle, comp_id }) => {
-  const [angle, setAngle] = useState(0);
+  const [angle, setAngle] = useState(45);
 
   // handle turn clockwise component
   const handleClick = () => {

@@ -4,8 +4,8 @@ import Paper from "@material-ui/core/Paper";
 
 const GotoXY = ({ character, comp_id }) => {
   const [state, setState] = useState({
-    goto_x: 0,
-    goto_y: 0,
+    goto_x: 100,
+    goto_y: 100,
   });
 
   // go to posiiton X and Y

@@ -5,7 +5,7 @@ import { useSnackbar } from "notistack";
 const BroadcastMessage = ({ comp_id }) => {
   const { enqueueSnackbar } = useSnackbar();
   const [state, setState] = useState({
-    message: "",
+    message: "Default Broadcast Message",
   });
 
   /* Display Snackbar */

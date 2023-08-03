@@ -5,8 +5,8 @@ import Paper from "@material-ui/core/Paper";
 const ThinkWithTimer = ({ character, comp_id }) => {
   const [state, setState] = useState({
     show_msg: false,
-    timer_message: "",
-    timer_for_msg: 0,
+    timer_message: "I am thinking in timer!",
+    timer_for_msg: 2,
   });
   /* Display Think Message with Timer */
   const displayMessage = () => {

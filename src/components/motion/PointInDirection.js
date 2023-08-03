@@ -4,7 +4,7 @@ import { setCharacterAngle } from "../../redux/character/actions";
 import Paper from "@material-ui/core/Paper";
 
 const PointInDirection = ({ character, characterAngle, comp_id }) => {
-  const [angle, setAngle] = useState(0);
+  const [angle, setAngle] = useState(45);
 
   // handle anti-clockwise rotation
   const handleClick = () => {

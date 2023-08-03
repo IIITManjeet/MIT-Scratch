@@ -4,7 +4,7 @@ import { setWait } from "../../redux/events/eventActions";
 import Paper from "@material-ui/core/Paper";
 
 const Wait = ({ events, comp_id, set_wait }) => {
-  const [wait, setStateWait] = useState(0);
+  const [wait, setStateWait] = useState(5);
 
   // Set Wait value for current component
   function handleChange(e) {

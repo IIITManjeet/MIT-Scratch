@@ -4,7 +4,7 @@ import Paper from "@material-ui/core/Paper";
 
 // Move Component for Sidebar
 const MoveY = ({ character, comp_id }) => {
-  const [steps, setSteps] = useState(0);
+  const [steps, setSteps] = useState(100);
 
   // Function used for moiving Sprint in Y direction
   const handleClick = () => {

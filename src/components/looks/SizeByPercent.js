@@ -4,7 +4,7 @@ import Paper from "@material-ui/core/Paper";
 
 const SizeByPercent = ({ character, comp_id }) => {
   const [state, setState] = useState({
-    scale: 1,
+    scale: 1.5,
   });
   // To change Size of Sprint
   const changeSize = () => {

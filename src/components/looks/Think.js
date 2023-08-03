@@ -5,7 +5,7 @@ import Paper from "@material-ui/core/Paper";
 const ThinkMessage = ({ character, comp_id }) => {
   const [state, setState] = useState({
     show_msg: false,
-    message: "",
+    message: "I am thinking!",
     character_id: "",
   });
   /* Display Think Message */

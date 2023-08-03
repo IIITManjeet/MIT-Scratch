@@ -5,8 +5,8 @@ import Paper from "@material-ui/core/Paper";
 const SayMessageWithTimer = ({ character, comp_id }) => {
   const [state, setState] = useState({
     show_msg: false,
-    timer_message: "",
-    timer_for_msg: 0,
+    timer_message: "Hello From Timer",
+    timer_for_msg: 2,
   });
 
   /* Display Message with Timer */
