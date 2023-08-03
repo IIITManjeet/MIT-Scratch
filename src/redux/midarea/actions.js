@@ -1,4 +1,4 @@
-import { SET_LIST, ADD_LIST } from "./types";
+import { SET_LIST, ADD_LIST, DELETE_LIST } from "./types";
 
 export const updateList = (id, new_list) => {
   return {
@@ -11,5 +11,11 @@ export const updateList = (id, new_list) => {
 export const addList = () => {
   return {
     type: ADD_LIST,
+  };
+};
+
+export const deleteList = () => {
+  return {
+    type: DELETE_LIST,
   };
 };

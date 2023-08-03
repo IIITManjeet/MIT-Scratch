@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { setRepeat } from "../../redux/events/eventActions";
 import Paper from "@material-ui/core/Paper";
 
 const Repeat = ({ comp_id, events, set_repeat }) => {
   const [repeat, setStateRepeat] = useState(3);
-
-  // Set Repeat value for current component
+  useEffect(() => {
+    let curr = events.repeat;
+    curr[comp_id] = repeat;
+    set_repeat(curr);
+  }, []);
   function handleChange(e) {
     let val = parseInt(e.target.value);
     setStateRepeat(val);

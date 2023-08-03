@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { addList } from "../redux/midarea/actions";
+import { addList, deleteList } from "../redux/midarea/actions";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import { getComponent } from "./getComponents";
 import { createStyles, makeStyles, withStyles } from "@material-ui/core/styles";
@@ -8,6 +8,7 @@ import { setFlag, setSpace } from "../redux/events/eventActions";
 import Button from "@material-ui/core/Button";
 import { useState } from "react";
 import AddIcon from "@material-ui/icons/Add";
+import RemoveIcon from "@material-ui/icons/Remove";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import { purple } from "@material-ui/core/colors";
 import Paper from "@material-ui/core/Paper";
@@ -16,7 +17,8 @@ import Paper from "@material-ui/core/Paper";
 const useStyles = makeStyles(() =>
   createStyles({
     button: {
-      margin: 0,
+      marginRight: 20,
+      marginLeft: 20,
     },
   })
 );
@@ -34,7 +36,14 @@ const RunButton = withStyles((theme) => ({
 }))(Button);
 
 // Mid Area Component
-function MidArea({ area_list, add_list, event_values, set_flag, set_space }) {
+function MidArea({
+  area_list,
+  add_list,
+  delete_list,
+  event_values,
+  set_flag,
+  set_space,
+}) {
   const [flagCheck, setFlagCheck] = useState(0);
   const [spaceCheck, setSpaceCheck] = useState(0);
   const classes = useStyles();
@@ -61,7 +70,6 @@ function MidArea({ area_list, add_list, event_values, set_flag, set_space }) {
   const waitForFlag = () => {
     const promise = new Promise((resolve) => {
       if (flagCheck === 1) {
-        console.log("x");
         return Promise.resolve(1);
       }
     });
@@ -183,6 +191,15 @@ function MidArea({ area_list, add_list, event_values, set_flag, set_space }) {
           >
             Add List{" "}
           </Button>
+          <Button
+            variant="contained"
+            color="secondary"
+            className={classes.button}
+            startIcon={<RemoveIcon />}
+            onClick={() => delete_list()}
+          >
+            Delete List{" "}
+          </Button>
         </div>
       </div>
       <div className="grid grid-flow-col">
@@ -260,6 +277,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     add_list: () => dispatch(addList()),
+    delete_list: () => dispatch(deleteList()),
     set_flag: (value) => dispatch(setFlag(value)),
     set_space: (value) => dispatch(setSpace(value)),
   };
