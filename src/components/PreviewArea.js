@@ -83,11 +83,25 @@ function PreviewArea({
     setActive(e.target.value);
     set_active(e.target.value);
   };
+  // function handleClick(e) {
+  //   let val = parseInt(e.target.value);
+  //   console.log(events.flag);
+  //   setStateFlag(val);
+  //   console.log(events.flag);
+  //   set_flag(val);
+  // }
+
   function handleClick(e) {
     let val = parseInt(e.target.value);
-    setStateFlag(val);
     console.log(events.flag);
-    set_flag(val);
+    if(events.flag === 0) {
+      set_flag(1)
+    } else {
+      set_flag(0);
+    }
+    
+    console.log(events.flag);
+    // set_flag(val);
   }
 
   return (

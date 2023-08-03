@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { addList } from "../redux/midarea/actions";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import { getComponent } from "./getComponents";
 import { createStyles, makeStyles, withStyles } from "@material-ui/core/styles";
+import { setFlag } from "../redux/events/eventActions";
 import Button from "@material-ui/core/Button";
+import { useState } from "react";
 import AddIcon from "@material-ui/icons/Add";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 import { purple } from "@material-ui/core/colors";
@@ -32,7 +34,8 @@ const RunButton = withStyles((theme) => ({
 }))(Button);
 
 // Mid Area Component
-function MidArea({ area_list, add_list, event_values }) {
+function MidArea({ area_list, add_list, event_values, set_flag }) {
+  const [flagCheck, setFlagCheck] = useState(0);
   const classes = useStyles();
   const eventFire = (el, etype) => {
     if (el && el.fireEvent) {
@@ -44,11 +47,26 @@ function MidArea({ area_list, add_list, event_values }) {
     }
   };
 
+  useEffect(() => {
+    event_values.flag === 0 ? setFlagCheck(0) : setFlagCheck(1);
+    console.log(event_values.flag);
+    waitForFlag();
+  }, [event_values.flag, flagCheck]);
+
+  const waitForFlag = () => {
+    const promise = new Promise((resolve) => {
+      if (flagCheck === 1) {
+        console.log("x");
+        return Promise.resolve(1);
+      }
+    });
+    return promise;
+  };
+
   // Handle Running the list
-  const handleClick = (arr, id) => {
+  const handleClick = async (arr, id) => {
     if (arr.length === 0) return;
     let i = 0;
-
     let repeat = 1;
 
     let str1 = `comp${arr[i]}-${id}-${i}`;
@@ -65,12 +83,12 @@ function MidArea({ area_list, add_list, event_values }) {
     }
 
     if (arr[i] === "FLAG") {
-      let str2 = `comp${arr[i]}-${id}-${i}`;
-      while (event_values.flag === 0) {
-        console.log(event_values.flag);
-      }
-      if (event_values.flag === 1) {
-        i++;
+      if (flagCheck === 0) {
+        console.log("before");
+        await waitForFlag().then((res) => {
+          console.log(res, "res");
+          i++;
+        });
       }
     }
 
@@ -116,6 +134,7 @@ function MidArea({ area_list, add_list, event_values }) {
         i++;
       }
     }, 2000);
+    set_flag(0);
   };
   return (
     <div className="flex-1 h-full overflow-auto p-3">
@@ -211,6 +230,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     add_list: () => dispatch(addList()),
+    set_flag: (value) => dispatch(setFlag(value)),
   };
 };
 
