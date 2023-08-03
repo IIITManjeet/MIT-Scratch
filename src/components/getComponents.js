@@ -26,6 +26,7 @@ import Reset from "./looks/Reset";
 import { Flag } from "@material-ui/icons";
 import FlagClick from "./events/flagClick";
 import SpaceClick from "./events/spaceClick";
+import Stop from "./control/Stop";
 
 // fetch components based on different keys
 export const getComponent = (key, id) => {
@@ -49,6 +50,9 @@ export const getComponent = (key, id) => {
 
     case "POINT_IN_DIRECTION":
       return <PointInDirection comp_id={id} />;
+
+    case "STOP":
+      return <Stop comp_id={id} />;
 
     case "SET_X":
       return <SetXTo comp_id={id} />;

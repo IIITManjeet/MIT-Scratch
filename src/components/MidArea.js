@@ -4,7 +4,7 @@ import { addList, deleteList } from "../redux/midarea/actions";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import { getComponent } from "./getComponents";
 import { createStyles, makeStyles, withStyles } from "@material-ui/core/styles";
-import { setFlag, setSpace } from "../redux/events/eventActions";
+import { setFlag, setSpace, setStop } from "../redux/events/eventActions";
 import Button from "@material-ui/core/Button";
 import { useState } from "react";
 import AddIcon from "@material-ui/icons/Add";
@@ -41,6 +41,7 @@ function MidArea({
   add_list,
   delete_list,
   event_values,
+  set_stop,
   set_flag,
   set_space,
 }) {
@@ -112,7 +113,6 @@ function MidArea({
 
     if (arr[i] === "FLAG") {
       if (flagCheck === 0) {
-        console.log("before");
         await waitForFlag().then((res) => {
           console.log(res, "res");
           i++;
@@ -121,7 +121,6 @@ function MidArea({
     }
     if (arr[i] === "SPACE") {
       if (spaceCheck === 0) {
-        console.log("before");
         await waitForSpace().then((res) => {
           console.log(res, "res");
           i++;
@@ -129,6 +128,7 @@ function MidArea({
       }
     }
 
+    if (arr[i] === "STOP") return;
     // Handle Repeat at first index
     else if (arr[i] !== "REPEAT") {
       eventFire(document.getElementById(str1), "click");
@@ -173,6 +173,7 @@ function MidArea({
     }, 2000);
     set_flag(0);
     set_space(0);
+    set_stop(0);
   };
   return (
     <div className="flex-1 h-full overflow-auto p-3">
@@ -279,6 +280,7 @@ const mapDispatchToProps = (dispatch) => {
     add_list: () => dispatch(addList()),
     delete_list: () => dispatch(deleteList()),
     set_flag: (value) => dispatch(setFlag(value)),
+    set_stop: (value) => dispatch(setStop(value)),
     set_space: (value) => dispatch(setSpace(value)),
   };
 };

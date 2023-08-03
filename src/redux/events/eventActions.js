@@ -1,4 +1,4 @@
-import { SET_REPEAT, SET_WAIT, SET_FLAG, SET_SPACE } from "./eventTypes";
+import { SET_REPEAT, SET_WAIT, SET_FLAG, SET_SPACE, STOP } from "./eventTypes";
 
 export const setRepeat = (repeat_val) => {
   return {
@@ -24,6 +24,13 @@ export const setFlag = (flag_val) => {
 export const setSpace = (space_val) => {
   return {
     type: SET_SPACE,
+    value: space_val,
+  };
+};
+
+export const setStop = (space_val) => {
+  return {
+    type: STOP,
     value: space_val,
   };
 };
