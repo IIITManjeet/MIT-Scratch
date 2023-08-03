@@ -9,7 +9,10 @@ const Size = ({ character, comp_id }) => {
   // To change Size of Sprint
   const changeSize = () => {
     const el = document.getElementById(character.active);
-    el.style.transform = `scale(${state.scale})`;
+    const character_angle = character.characters.find(
+      (x) => x.id === character.active
+    );
+    el.style.transform = el.style.transform + `scale(${state.scale})`;
   };
 
   return (

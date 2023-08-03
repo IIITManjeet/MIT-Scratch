@@ -9,8 +9,12 @@ const SizeByPercent = ({ character, comp_id }) => {
   // To change Size of Sprint
   const changeSize = () => {
     const el = document.getElementById(character.active);
+    const character_angle = character.characters.find(
+      (x) => x.id === character.active
+    );
     el.style.transition = "transform 0s";
-    el.style.transform = `scale(${state.scale})`;
+    el.style.transform = el.style.transform + `scale(${state.scale})`;
+    console.log(el.style.transform);
   };
 
   return (
