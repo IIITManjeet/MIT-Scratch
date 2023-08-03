@@ -1,12 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { setSpace, setStop } from "../../redux/events/eventActions";
 import Paper from "@material-ui/core/Paper";
 import BlockIcon from "@material-ui/icons//Block";
 
-const Stop = ({ events, comp_id }) => {
+const Stop = ({comp_id }) => {
   return (
-    // Space Component
+    // Block Component
     <Paper elevation={3}>
       <div className="rounded text-center bg-red-400 p-2 my-3">
         <div className="grid grid-cols-3 my-2">
@@ -16,12 +15,7 @@ const Stop = ({ events, comp_id }) => {
           </span>{" "}
           <div className="text-white">All</div>
         </div>
-        <div
-          id={comp_id}
-          className="rounded flex flex-row flex-wrap bg-red-600 text-white px-2 py-1 my-2 text-sm cursor-pointer"
-        >
-          Stop {events.stop === 0 ? "False" : "True"}
-        </div>
+        
       </div>
     </Paper>
   );
@@ -34,11 +28,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-// map function to component
-const mapDispatchToProps = (dispatch) => {
-  return {
-    set_stop: (value) => dispatch(setStop(value)),
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Stop);
+
+export default connect(mapStateToProps)(Stop);

@@ -5,7 +5,7 @@ const initialState = {
   wait: {},
   flag: 0,
   space: 0,
-  stop: 0,
+  
 };
 
 export const eventReducer = (state = initialState, action) => {
@@ -31,11 +31,7 @@ export const eventReducer = (state = initialState, action) => {
         ...state,
         space: action.value,
       };
-    case STOP:
-      return {
-        ...state,
-        stop: action.value,
-      };
+    
     default:
       return state;
   }

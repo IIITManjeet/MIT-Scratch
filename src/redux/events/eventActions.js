@@ -28,9 +28,3 @@ export const setSpace = (space_val) => {
   };
 };
 
-export const setStop = (space_val) => {
-  return {
-    type: STOP,
-    value: space_val,
-  };
-};
