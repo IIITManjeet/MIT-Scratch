@@ -10,6 +10,7 @@ import Show from "./looks/Show";
 import Hide from "./looks/Hide";
 import Wait from "./control/Wait";
 import Repeat from "./control/Repeat";
+import Forever from "./control/Forever";
 import HideMessage from "./looks/HideMessage";
 import MoveY from "./motion/MoveY";
 import BroadcastMessage from "./events/broadcast";
@@ -92,6 +93,10 @@ export const getComponent = (key, id) => {
 
     case "REPEAT":
       return <Repeat comp_id={id} />;
+
+    case "FOREVER":
+      return <Forever comp_id={id} />;
+
 
     case "SPACE":
       return <SpaceClick comp_id={id} />;

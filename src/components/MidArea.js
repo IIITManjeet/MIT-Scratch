@@ -41,12 +41,12 @@ function MidArea({
   add_list,
   delete_list,
   event_values,
-  set_stop,
   set_flag,
   set_space,
 }) {
   const [flagCheck, setFlagCheck] = useState(0);
   const [spaceCheck, setSpaceCheck] = useState(0);
+  const [stop, setStop] = useState(false);
   const classes = useStyles();
   const eventFire = (el, etype) => {
     if (el && el.fireEvent) {
@@ -94,7 +94,9 @@ function MidArea({
 
   // Handle Running the list
   const handleClick = async (arr, id) => {
-    if (arr.length === 0) return;
+    console.log(stop);
+    if (arr.length === 0 || stop) return;
+    
     let i = 0;
     let repeat = 1;
 
@@ -128,7 +130,10 @@ function MidArea({
       }
     }
 
-    if (arr[i] === "STOP") return;
+    if (arr[i] === "STOP") {
+      setStop(true);
+      return;
+    }
     // Handle Repeat at first index
     else if (arr[i] !== "REPEAT") {
       eventFire(document.getElementById(str1), "click");
@@ -143,8 +148,31 @@ function MidArea({
         clearInterval(cnt);
       }
 
+      if (arr[i] === "STOP") {
+        setStop(true);
+        return;
+      }
+
+      //Handle Forever
+      if(arr[i] === "FOREVER") {
+        let str2 = `comp${arr[i]}-${id}-${i}`;
+        i++;
+      }
+
+      // if Forever is at previous index
+      else if(arr[i - 1] === "FOREVER") {
+        
+          console.log("forever");
+          let str2 = `comp${arr[i]}-${id}-${i}`;
+          eventFire(document.getElementById(str2), "click");
+        
+        
+      }
+
+      
+
       // Handle Wait
-      if (arr[i] === "WAIT") {
+      else if (arr[i] === "WAIT") {
         let str2 = `comp${arr[i]}-${id}-${i}`;
         let last_time = new Date().getTime();
         let curr_time = new Date().getTime();
@@ -173,7 +201,6 @@ function MidArea({
     }, 2000);
     set_flag(0);
     set_space(0);
-    set_stop(0);
   };
   return (
     <div className="flex-1 h-full overflow-auto p-3">
@@ -280,7 +307,6 @@ const mapDispatchToProps = (dispatch) => {
     add_list: () => dispatch(addList()),
     delete_list: () => dispatch(deleteList()),
     set_flag: (value) => dispatch(setFlag(value)),
-    set_stop: (value) => dispatch(setStop(value)),
     set_space: (value) => dispatch(setSpace(value)),
   };
 };

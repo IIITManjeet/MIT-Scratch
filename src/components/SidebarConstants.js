@@ -28,4 +28,4 @@ export const looksComponents = [
 
 export const eventsComponents = ["BROADCAST", "FLAG", "SPACE"];
 
-export const controlComponents = ["WAIT", "REPEAT", "STOP"];
+export const controlComponents = ["WAIT", "REPEAT", "STOP", "FOREVER"];
