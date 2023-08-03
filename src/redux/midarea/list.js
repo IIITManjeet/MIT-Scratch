@@ -4,8 +4,12 @@ const initialState = {
   midAreaLists: [
     {
       id: "midAreaList-0",
-      comps: ["MOVE"],
+      comps: ["FLAG", "MOVE","REPEAT", "MOVE_Y", "TURN_CLOCKWISE", "TURN_ANTI_CLOCKWISE", "SAY_MESSAGE", "POINT_IN_DIRECTION", "SET_X", "SET_Y", "POINT_MOUSE_POINTER", "SIZE_BY_PERCENT", "COLOR", "SAY_MESSAGE_WITH_TIMER", "SIZE", "HIDE", "SHOW", "BROADCAST", "WAIT", "GOTO_MOUSE_POINTER", "HIDE_MESSAGE", "THINK", "THINK_TIMER", "GOTO_XY"],
     },
+    {
+      id: "midAreaList-1",
+      comps:["MOVE"]
+    }
   ],
 };
 
