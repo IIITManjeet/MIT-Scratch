@@ -26,6 +26,6 @@ export const looksComponents = [
   "RESET",
 ];
 
-export const eventsComponents = ["BROADCAST", "FLAG"];
+export const eventsComponents = ["BROADCAST", "FLAG", "SPACE"];
 
 export const controlComponents = ["WAIT", "REPEAT"];

@@ -4,7 +4,7 @@ import { addList } from "../redux/midarea/actions";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import { getComponent } from "./getComponents";
 import { createStyles, makeStyles, withStyles } from "@material-ui/core/styles";
-import { setFlag } from "../redux/events/eventActions";
+import { setFlag, setSpace } from "../redux/events/eventActions";
 import Button from "@material-ui/core/Button";
 import { useState } from "react";
 import AddIcon from "@material-ui/icons/Add";
@@ -34,8 +34,9 @@ const RunButton = withStyles((theme) => ({
 }))(Button);
 
 // Mid Area Component
-function MidArea({ area_list, add_list, event_values, set_flag }) {
+function MidArea({ area_list, add_list, event_values, set_flag, set_space }) {
   const [flagCheck, setFlagCheck] = useState(0);
+  const [spaceCheck, setSpaceCheck] = useState(0);
   const classes = useStyles();
   const eventFire = (el, etype) => {
     if (el && el.fireEvent) {
@@ -49,15 +50,34 @@ function MidArea({ area_list, add_list, event_values, set_flag }) {
 
   useEffect(() => {
     event_values.flag === 0 ? setFlagCheck(0) : setFlagCheck(1);
-    console.log(event_values.flag);
     waitForFlag();
   }, [event_values.flag, flagCheck]);
+
+  useEffect(() => {
+    event_values.space === 0 ? setSpaceCheck(0) : setSpaceCheck(1);
+    waitForSpace();
+  }, [event_values.space, spaceCheck]);
 
   const waitForFlag = () => {
     const promise = new Promise((resolve) => {
       if (flagCheck === 1) {
         console.log("x");
         return Promise.resolve(1);
+      }
+    });
+    return promise;
+  };
+
+  const waitForSpace = () => {
+    const promise = new Promise((resolve) => {
+      if (spaceCheck === 1) {
+        return Promise.resolve(1);
+      } else {
+        window.onkeypress = function (event) {
+          if (event.which == 32) {
+            set_space(1);
+          }
+        };
       }
     });
     return promise;
@@ -86,6 +106,15 @@ function MidArea({ area_list, add_list, event_values, set_flag }) {
       if (flagCheck === 0) {
         console.log("before");
         await waitForFlag().then((res) => {
+          console.log(res, "res");
+          i++;
+        });
+      }
+    }
+    if (arr[i] === "SPACE") {
+      if (spaceCheck === 0) {
+        console.log("before");
+        await waitForSpace().then((res) => {
           console.log(res, "res");
           i++;
         });
@@ -135,6 +164,7 @@ function MidArea({ area_list, add_list, event_values, set_flag }) {
       }
     }, 2000);
     set_flag(0);
+    set_space(0);
   };
   return (
     <div className="flex-1 h-full overflow-auto p-3">
@@ -231,6 +261,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     add_list: () => dispatch(addList()),
     set_flag: (value) => dispatch(setFlag(value)),
+    set_space: (value) => dispatch(setSpace(value)),
   };
 };
 

@@ -1,9 +1,10 @@
-import { SET_REPEAT, SET_WAIT, SET_FLAG } from "./eventTypes";
+import { SET_REPEAT, SET_WAIT, SET_FLAG, SET_SPACE } from "./eventTypes";
 
 const initialState = {
   repeat: {},
   wait: {},
   flag: 0,
+  space: 0,
 };
 
 export const eventReducer = (state = initialState, action) => {
@@ -23,6 +24,11 @@ export const eventReducer = (state = initialState, action) => {
       return {
         ...state,
         flag: action.value,
+      };
+    case SET_SPACE:
+      return {
+        ...state,
+        space: action.value,
       };
     default:
       return state;

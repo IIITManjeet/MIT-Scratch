@@ -25,6 +25,7 @@ import Color from "./looks/Color";
 import Reset from "./looks/Reset";
 import { Flag } from "@material-ui/icons";
 import FlagClick from "./events/flagClick";
+import SpaceClick from "./events/spaceClick";
 
 // fetch components based on different keys
 export const getComponent = (key, id) => {
@@ -87,6 +88,9 @@ export const getComponent = (key, id) => {
 
     case "REPEAT":
       return <Repeat comp_id={id} />;
+
+    case "SPACE":
+      return <SpaceClick comp_id={id} />;
 
     case "HIDE_MESSAGE":
       return <HideMessage comp_id={id} />;

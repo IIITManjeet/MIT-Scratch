@@ -94,12 +94,12 @@ function PreviewArea({
   function handleClick(e) {
     let val = parseInt(e.target.value);
     console.log(events.flag);
-    if(events.flag === 0) {
-      set_flag(1)
+    if (events.flag === 0) {
+      set_flag(1);
     } else {
       set_flag(0);
     }
-    
+
     console.log(events.flag);
     // set_flag(val);
   }
