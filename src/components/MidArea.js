@@ -153,10 +153,26 @@ function MidArea({
         return;
       }
 
+      //Handle Forever
+      if(arr[i] === "FOREVER") {
+        let str2 = `comp${arr[i]}-${id}-${i}`;
+        i++;
+      }
+
+      // if Forever is at previous index
+      else if(arr[i - 1] === "FOREVER") {
+        
+          console.log("forever");
+          let str2 = `comp${arr[i]}-${id}-${i}`;
+          eventFire(document.getElementById(str2), "click");
+        
+        
+      }
+
       
 
       // Handle Wait
-      if (arr[i] === "WAIT") {
+      else if (arr[i] === "WAIT") {
         let str2 = `comp${arr[i]}-${id}-${i}`;
         let last_time = new Date().getTime();
         let curr_time = new Date().getTime();
