@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) =>
       minWidth: 120,
     },
     selectEmpty: {
-      marginTop: theme.spacing(2),
+      marginTop: theme.spacing(0),
     },
     button: {
       margin: 0,
@@ -106,7 +106,7 @@ function PreviewArea({
 
   return (
     <div
-      className="w-full flex-none h-full overflow-y-auto p-3"
+      className="w-full flex-none h-full overflow-y-auto p-2"
       id="preview_area"
     >
       <div className="flex justify-between mb-10">
@@ -115,17 +115,14 @@ function PreviewArea({
         </div>
         <div
           onClick={(e) => handleClick(e)}
-          className="font-bold mb-5 text-center border border-2 rounded text-white hover:bg-yellow-200 hover:z-[10px]
-          cursor-pointer text-green-400 p-2 w-auto"
+          className="font-bold mb-5 text-center border border-2 rounded text-white hover:bg-green-400 hover:text-white text-green-400 hover:z-[10px]
+          cursor-pointer p-2 w-auto"
           id="flag"
         >
           <FlagIcon />
         </div>
         <div>
           <FormControl className={classes.formControl}>
-            <InputLabel shrink id="demo-simple-select-placeholder-label-label">
-              Active
-            </InputLabel>
             <Select
               labelId="demo-simple-select-placeholder-label-label"
               id="demo-simple-select-placeholder-label"
