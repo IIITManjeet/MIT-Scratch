@@ -203,7 +203,7 @@ function MidArea({
     set_space(0);
   };
   return (
-    <div className="flex-1 h-full overflow-auto p-3">
+    <div className="flex-1 h-full overflow-auto p-2">
       <div className="flex justify-between">
         <div className="font-bold mb-5 text-center border border-2 rounded text-white bg-green-400 p-2 w-auto">
           Mid Area
@@ -234,8 +234,8 @@ function MidArea({
         {area_list.midAreaLists.map((l) => {
           return (
             <div className="w-60" key={l.id}>
-              <Paper elevation={3} className="p-4">
-                <div className="w-52 border border-2 border-gray-300 p-2">
+              <Paper elevation={3} className="flex items-center justify-center rounded-lg">
+                <div className="w-52 p-2">
                   <Droppable droppableId={l.id} type="COMPONENTS">
                     {(provided) => {
                       return (
@@ -258,8 +258,7 @@ function MidArea({
                           {l.comps &&
                             l.comps.map((x, i) => {
                               let str = `${x}`;
-                              let component_id = `comp${str}-${l.id}-${i}`;
-
+                              let component_id = `comp${str}-${l.id}-${i}`
                               return (
                                 <Draggable
                                   key={`${str}-${l.id}-${i}`}

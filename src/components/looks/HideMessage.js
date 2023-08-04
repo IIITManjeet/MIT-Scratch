@@ -17,7 +17,8 @@ const HideMessage = ({ character, comp_id }) => {
       <div
         id={comp_id}
         onClick={() => displayMessage()}
-        className="rounded bg-purple-700 text-center text-white max-w-content p-1 my-3"
+        style={{background:'#A121AA'}}
+        className="rounded text-center text-white max-w-content p-1 my-3"
       >
         Hide Message
       </div>
